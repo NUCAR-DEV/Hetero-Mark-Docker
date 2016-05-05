@@ -1,6 +1,12 @@
 FROM ubuntu:14.04.4
 MAINTAINER NUCAR
 
+# OpenCL software stack
+COPY ./AMDAPPSDK-3.0 /opt/
+
+ENV AMDAPPSDKROOT /opt/AMDAPPSDK-3.0
+ENV PATH /opt/$(AMDAPPSDKROOT)/bin:$PATH
+
 # HSA software stack
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget git cmake g++ python
@@ -9,11 +15,6 @@ RUN sh -c 'echo deb [arch=amd64] http://packages.amd.com/rocm/apt/debian/ trusty
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y rocm rocm-dev amdcloc
 
-# AMDAPPSDK
-COPY ./AMDAPPSDK-3.0 /opt/
-
-# Set up some environment variables
 ENV HSA_RUNTIME_PATH /opt/rocm/hsa
 ENV PATH /opt/rocm/cloc/bin:$PATH
-ENV AMDAPPSDKROOT /opt/AMDAPPSDK-3.0
 
