@@ -13,7 +13,7 @@ ENV HSA_RUNTIME_PATH /opt/rocm/hsa
 ENV PATH /opt/rocm/cloc/bin:$PATH
 
 # OpenCL software stack
-RUN cd /tmp && apt-get download fglrx-core && dpkg --force-all -i  fglrx-core*; exit 0
+RUN apt-get install fglrx-core
 COPY ./AMDAPPSDK-3.0 /opt/AMDAPPSDK-3.0
 
 ENV AMDAPPSDKROOT /opt/AMDAPPSDK-3.0
