@@ -3,7 +3,7 @@ MAINTAINER NUCAR
 
 # OpenCL software stack
 RUN apt-get update
-RUN cd /tmp && apt-get download fglrx-core && dpkg --force-all -i  fglrx-core*
+RUN cd /tmp && apt-get download fglrx-core && dpkg --force-all -i  fglrx-core*; exit 0
 COPY ./AMDAPPSDK-3.0 /opt/AMDAPPSDK-3.0
 
 ENV AMDAPPSDKROOT /opt/AMDAPPSDK-3.0
