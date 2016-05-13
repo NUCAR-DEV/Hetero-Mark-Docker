@@ -3,7 +3,7 @@ MAINTAINER NUCAR
 
 # HSA software stack
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget git cmake clang python
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget git cmake clang-3.5 python
 RUN wget -qO - http://packages.amd.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
 RUN sh -c 'echo deb [arch=amd64] http://packages.amd.com/rocm/apt/debian/ trusty main > /etc/apt/sources.list.d/rocm.list'
 RUN apt-get update
