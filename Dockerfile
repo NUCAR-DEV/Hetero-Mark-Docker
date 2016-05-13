@@ -11,6 +11,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y amdcloc hcc_hsail libelf1 
 
 ENV HSA_RUNTIME_PATH /opt/rocm/hsa
 ENV PATH /opt/rocm/cloc/bin:$PATH
+ENV PATH /opt/rocm/hcc/bin:$PATH
 
 # OpenCL software stack
 RUN apt-get install -y fglrx-core
