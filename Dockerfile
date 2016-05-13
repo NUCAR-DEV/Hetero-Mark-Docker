@@ -18,3 +18,9 @@ COPY ./AMDAPPSDK-3.0 /opt/AMDAPPSDK-3.0
 
 ENV AMDAPPSDKROOT /opt/AMDAPPSDK-3.0
 ENV PATH /opt/$(AMDAPPSDKROOT)/bin:$PATH
+
+# Temporary fix, will be removed when repo is updated
+RUN cd /tmp
+RUN wget https://github.com/HSAFoundation/CLOC/raw/master/packages/ubuntu/amdcloc_1.0-11_amd64.deb
+RUN wget https://github.com/HSAFoundation/CLOC/raw/master/packages/ubuntu/hlc_3.2-4_amd64.deb
+RUN dpkg -i *.deb
